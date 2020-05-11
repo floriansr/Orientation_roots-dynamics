@@ -1,16 +1,25 @@
-import React, { useState, useEffect } from "react";
-import Example from "components/Example";
+import React from "react";
+
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import Navbar from "components/Navbar";
+
+import Home from "pages/Home";
 
 const App = () => {
-	const [data, setData] = useState("");
-
-	useEffect(() => {
-		setData();
-	}, []);
-
 	return (
 		<>
-			<Example name={data} />
+			<Router>
+				<div>
+					<Navbar />
+
+					<Switch>
+						<Route>
+							<Home exact path="/" />
+						</Route>
+					</Switch>
+				</div>
+			</Router>
 		</>
 	);
 };
